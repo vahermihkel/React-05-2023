@@ -1,0 +1,17 @@
+.pilt {
+  width: 100px;
+}
+
+.pilt:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.nupp {
+  font-weight: bold;
+}
+
+.nupp:hover {
+  border: 3px dotted green;
+  cursor: pointer;
+}
