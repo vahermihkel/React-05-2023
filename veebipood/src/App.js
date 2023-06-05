@@ -3,6 +3,9 @@ import { Link, Route, Routes } from "react-router-dom";
 import Avaleht from './pages/Avaleht';
 import Ostukorv from './pages/Ostukorv';
 import LisaToode from './pages/LisaToode';
+import Seaded from './pages/Seaded';
+import { useState } from 'react';
+import NotFound from './pages/NotFound';
 
 // Navigeerimiseks ehk URLde vaheliseks liikumiseks on Reactis vaja:
 // 1. npm install react-router-dom
@@ -31,12 +34,16 @@ import LisaToode from './pages/LisaToode';
 // (((((((((((())))))))))))
 
 function App() {
+  const [veebileht, uuendaVeebileht] = useState("hele");
 
   return (
-    <div className="App">
+    <div className={veebileht}>
       <Link to="/">
         <img className="pilt" src="https://img12.img-bcg.eu/auto24/news/770/469/130299469.jpg" alt="" />
       </Link>
+
+      {veebileht === "hele" && <button onClick={() => uuendaVeebileht("tume")}>Dark mode</button>}
+      {veebileht === "tume" && <button onClick={() => uuendaVeebileht("hele")}>Light mode</button>}
 
       <Link to="/ostukorv">
         <button className="nupp">Ostukorv</button>
@@ -46,10 +53,16 @@ function App() {
         <button className="nupp">Lisa toode</button>
       </Link>
 
+      <Link to="/seaded">
+        <button className="nupp">Seaded</button>
+      </Link>
+
       <Routes>
         <Route path="" element={ <Avaleht /> } />
         <Route path="ostukorv" element={ <Ostukorv /> } />
         <Route path="lisa-toode" element={ <LisaToode /> } />
+        <Route path="seaded" element={ <Seaded /> } />
+        <Route path="*" element={ <NotFound /> } />
       </Routes>
 
       {/* <p></p>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function Avaleht() {
-  const [kogus, uuendaKogus] = useState(7);
+  const [kogus, uuendaKogus] = useState(12);
   const [laigitud, uuendaLaigitud] = useState(false); // kas_on    kas_ei_ole    false / true
   const [sonum, uuendaSonum] = useState("Uuenda kogust!");
 
@@ -28,10 +28,10 @@ function Avaleht() {
       <button onClick={() => uuendaLaigitud(true)}>Muuda laigituks</button>
       <button onClick={() => uuendaLaigitud(false)}>Muuda mittelaigituks</button>
       <br /><br />
-      <div>{sonum}</div>
+      <div className={kogus >= 10 ? "kuldne" : undefined}>{sonum}</div>
       <button onClick={nulli}>Tagasi nulli</button>
       <button disabled={kogus === 0} onClick={vahenda}>-</button>
-      {kogus}
+      <span className={kogus >= 10 ? "kuldne" : undefined}>{kogus}</span>
       <button onClick={suurenda}>+</button>
     </div>
   )

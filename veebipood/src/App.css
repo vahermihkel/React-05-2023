@@ -15,3 +15,20 @@
   border: 3px dotted green;
   cursor: pointer;
 }
+
+.tume {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  /* 100% view height ---> ekraani kõrgus */
+}
+
+.hele {
+  background-color: aliceblue;
+  min-height: 100vh;
+}
+
+.kuldne {
+  color: goldenrod;
+}
+
