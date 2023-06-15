@@ -9,6 +9,10 @@ import NotFound from './pages/NotFound';
 import Hinnad from './pages/Hinnad';
 import Tooted from './pages/Tooted';
 import Poed from './pages/Poed';
+import HaldaTooteid from './pages/HaldaTooteid';
+import MuudaToode from './pages/MuudaToode';
+import YksPood from './pages/YksPood';
+import YksikToode from './pages/YksikToode';
 
 // Navigeerimiseks ehk URLde vaheliseks liikumiseks on Reactis vaja:
 // 1. npm install react-router-dom
@@ -21,7 +25,7 @@ import Poed from './pages/Poed';
 //              <div>  <input/>   <p>   <img/>   <h1>   <button>  
 // sinine     - JavaScripti muutuja
 // helesinine - JavaScriptis sissekirjutatud omadus (võti)
-//              .current.value       .length       .getItem    .stringify
+//              .current.value       .length       localStorage.    JSON.
 //              JavaScriptis sissekirjutatud omadus (atribuut)
 //         className    src    type   alt   to    path    element  onClick
 // roheline (suure tähega) - HTMLs imporditud klass, peab omama üleval ka importi
@@ -30,11 +34,29 @@ import Poed from './pages/Poed';
 // punane     -  jutumärkides väärtus
 // lillakas   -  return, import, export, if, else
 // roheline   - kommentaar
-// kollane    - funktsioon
+// kollane    - funktsioon   .getItem()   .stringify()
 // valge      - märgid, väljakuvamised
 // {{{{{{{{{{{}}}}}}}}}}}
 // [[[[[[[[[[]]]]]]]]]]
 // (((((((((((())))))))))))
+
+// [] - array      ["Nobe", "Tesla", "BMW"]     const [muutuja, funktsioon] = useState
+// {} - objekt, JavaScript, koodiblokk       const { mutuuja1, muutuaj2, muutuja... }
+//    - if () {} else {}        const funktsioon = () => {}
+//    HTMLs JavaScripti tegemiseks (dünaamika jaoks)    { kas_tõsi && <tag> }
+//            onClick={}
+// () - funktsioonide jaoks       onClick={() => fnkt()}
+//    - parameetrite jaoks ehk andmete saatmiseks
+// || - or / või       localStorage.getItem("n") on "null", siis võta parempoolne
+// && - and / ja       { kas_tõsi && <tag> }
+// ;  - rea lõpetaja (pole kohustuslik)
+// =  - väärtuse andmiseks, nii JavaScriptis   = useState     = useRef     = 0
+//      ref={}   className=""     src=""
+// => - array'de juures tsüklite tegemiseks       .map( muutuja => kasutan_muutujat
+//        const funktsioon = () => {}
+// ?  :   - ternary operator     lühendatud if else kuju
+//      KUI SIIN ON TÕSI  ?  SIIS VÕTA SEE  : KUI EI OLE TÕSI, VÕTA SEE
+//   if (             )  {                } else {                    } 
 
 function App() {
   const [veebileht, uuendaVeebileht] = useState(localStorage.getItem("theme") || "hele");
@@ -82,15 +104,23 @@ function App() {
         <button className="nupp">Tooted</button>
       </Link>
 
+      <Link to="/halda">
+        <button className="nupp">Halda tooteid</button>
+      </Link>
+
       <Routes>
-        <Route path="" element={ <Avaleht /> } />
-        <Route path="ostukorv" element={ <Ostukorv /> } />
-        <Route path="lisa-toode" element={ <LisaToode /> } />
-        <Route path="seaded" element={ <Seaded /> } />
-        <Route path="hinnad" element={ <Hinnad /> } />
-        <Route path="poed" element={ <Poed /> } />
-        <Route path="tooted" element={ <Tooted /> } />
-        <Route path="*" element={ <NotFound /> } />
+        <Route path="" element={<Avaleht />} />
+        <Route path="ostukorv" element={<Ostukorv />} />
+        <Route path="lisa-toode" element={<LisaToode />} />
+        <Route path="seaded" element={<Seaded />} />
+        <Route path="hinnad" element={<Hinnad />} />
+        <Route path="poed" element={<Poed />} />
+        <Route path="tooted" element={<Tooted />} />
+        <Route path="halda" element={<HaldaTooteid />} />
+        <Route path="muuda/:index" element={<MuudaToode />} />
+        <Route path="pood/:poeNimetus" element={<YksPood />} />
+        <Route path="toode/:jrkNr" element={<YksikToode />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {/* <p></p>

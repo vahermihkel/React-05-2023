@@ -25,7 +25,7 @@ function Hinnad() {
     <div>
       <button onClick={suuremani}>Sorteeri väiksemast suuremani</button>
       <button onClick={vaiksemadKui100}>Jäta alles hinnad väiksemad kui 100</button>
-      {hinnad.map(hind => <div>{hind}</div>)}
+      {hinnad.map((hind, jrkNr) => <div key={jrkNr}>{hind}</div>)}
       <div>Kokku: {kokku} €</div>
       <button onClick={arvutaHinnadKokku}>Arvuta uuesti kokku</button>
     </div>

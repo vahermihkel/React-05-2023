@@ -1,1 +1,9 @@
-["Ülemiste", "Viimsi", "Rocca al mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"]
+[
+  { "nimi": "Ülemiste",      "aeg": "9-22",  "tel": "41312321", "aadress": "Vääna 2" },
+  { "nimi": "Viimsi",        "aeg": "8-22",  "tel": "",         "aadress": "Lai 33" },
+  { "nimi": "Rocca al mare", "aeg": "10-22", "tel": "41312123", "aadress": "Arigato" },
+  { "nimi": "Magistrali",    "aeg": "8-23",  "tel": "41312111", "aadress": "Maagi 44" },
+  { "nimi": "Vesse",         "aeg": "8-20",  "tel": "41312222", "aadress": "Vee tn 22" },
+  { "nimi": "Kristiine",     "aeg": "8-23",  "tel": "41312444", "aadress": "Tulika 99" },
+  { "nimi": "Järveotsa",     "aeg": "10-17", "tel": "41312999", "aadress": "Pikk tn 901" }
+]
