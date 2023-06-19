@@ -10,9 +10,9 @@ function YksikToode() {
     <div>
       {leitudToode !== undefined && 
         <div>
-          <div>Toote nimi: {leitudToode}</div>
-          <div>Toote hind: ....</div>
-          <div>Toote pilt: ....</div>
+          <div>Toote nimi: {leitudToode.nimi}</div>
+          <div>Toote hind: {leitudToode.hind} €</div>
+          <div>Toote pilt: <img src={leitudToode.pilt} alt="" />  </div>
           <div>IBAN: ...</div>
         </div>}
       {leitudToode === undefined && <div>Toodet ei leitud</div>}

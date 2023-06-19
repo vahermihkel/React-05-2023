@@ -32,3 +32,12 @@
   color: goldenrod;
 }
 
+.mitteaktiivne {
+  background-color: rgb(247, 241, 241);
+  border: 1px solid red;
+}
+
+.aktiivne {
+  background-color: rgb(242, 248, 242);
+  border: 1px solid green;
+}

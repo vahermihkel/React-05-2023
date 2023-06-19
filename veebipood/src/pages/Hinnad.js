@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
 function Hinnad() {
-  const [hinnad, uuendaHinnad] = useState([123,11,22,3123,44,91,8,72]);
+  const [hinnad, uuendaHinnad] = useState([123, 11, 22, 3123, 44, 91, 8, 72]);
   const [kokku, uuendaKokku] = useState(0);
 
   const suuremani = () => {
-    hinnad.sort((a,b) => a - b);
+    hinnad.sort((a, b) => a - b);
     uuendaHinnad(hinnad.slice());
   }
 
