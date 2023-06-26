@@ -15,8 +15,8 @@ function Ostukorv() {
 
   const kustuta = (number) => {
     // kustutamiseks, kus ütlen esimese numbriga mitmendat ma kustutan, teise numbriga mitu tk alates selles
-    ostukorvFailist.splice(number, 1);
-    uuendaOstukorvi(ostukorvFailist.slice());
+    ostukorv.splice(number, 1);
+    uuendaOstukorvi(ostukorv.slice());
     //uuendaOstukorvi([...ostukorv]);
   }
 

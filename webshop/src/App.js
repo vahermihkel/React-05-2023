@@ -4,7 +4,7 @@ import './App.css';
 import HomePage from './pages/global/HomePage';
 import Cart from './pages/global/Cart';
 import Shops from './pages/global/Shops';
-import ContactUs from './pages/global/ContactUs';
+import { ContactUs } from './pages/global/ContactUs';
 import SingleProduct from './pages/global/SingleProduct';
 import NotFound from './pages/global/NotFound';
 
@@ -12,6 +12,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import { useTranslation } from 'react-i18next';
 
 import AdminHome from './pages/admin/AdminHome';
 import AddProduct from './pages/admin/AddProduct';
@@ -21,34 +23,35 @@ import MaintainShops from './pages/admin/MaintainShops';
 import EditProduct from './pages/admin/EditProduct';
 
 function App() {
+
+  const { t, i18n } = useTranslation();
+
+
   return (
     <div className="App">
-      
+{/* <h1>{t('Welcome to React')}</h1> */}
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">Mihkel's webshop</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/poed">Poed</Nav.Link>
-              <Nav.Link as={Link} to="/kontakteeru">Kontakteeru</Nav.Link>
+              <Nav.Link as={Link} to="/poed">{t("shops")}</Nav.Link>
+              <Nav.Link as={Link} to="/kontakteeru">{t("contact")}</Nav.Link>
               <NavDropdown title="Admin" id="collasible-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/admin/maintain-categories">Halda kategooriaid</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/admin/maintain-shops">
-                  Halda poode
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/admin/maintain-products">Halda tooteid</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/admin/maintain-categories">{t("maintain-categories")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/admin/maintain-shops">{t("maintain-shops")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/admin/maintain-products">{t("maintain-products")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/admin/add-product">{t("add-product")}</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to="/admin/add-product">
-                  Lisa toode
-                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/admin">Admin</NavDropdown.Item>
               </NavDropdown>
             </Nav>
+            <button onClick={() => i18n.changeLanguage("en")}>en</button>
+            <button onClick={() => i18n.changeLanguage("ee")}>ee</button>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
+              <Nav.Link as={Link} to="/ostukorv">{t("cart")}</Nav.Link>
+              <Nav.Link>{t("login")}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -66,7 +69,7 @@ function App() {
         <Route path="admin/maintain-products" element={ <MaintainProducts /> } />
         <Route path="admin/maintain-categories" element={ <MaintainCategories /> } />
         <Route path="admin/maintain-shops" element={ <MaintainShops /> } />
-        <Route path="admin/edit-product" element={ <EditProduct /> } />
+        <Route path="admin/edit-product/:id" element={ <EditProduct /> } />
         
         <Route path="*" element={ <NotFound /> } />
       </Routes>
@@ -75,3 +78,10 @@ function App() {
 }
 
 export default App;
+
+// TypeScript
+// https://www.npmjs.com/package/react-query
+// useMutation
+// context
+
+// redux ---> ei vaata

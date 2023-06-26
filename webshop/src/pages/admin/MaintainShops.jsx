@@ -1,8 +1,12 @@
 import React from 'react'
+import AdminHome from './AdminHome'
 
 function MaintainShops() {
   return (
-    <div>MaintainShops</div>
+    <div>
+      <AdminHome />
+      MaintainShops
+    </div>
   )
 }
 
