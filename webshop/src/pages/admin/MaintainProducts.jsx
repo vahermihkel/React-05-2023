@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import AdminHome from './AdminHome'
 // import productsFromFile from "../../data/products.json";
 import { Button } from 'react-bootstrap';
@@ -9,11 +9,15 @@ import config from "../../data/config.json";
 function MaintainProducts() {
   const { t } = useTranslation();
   const [products, setProducts] = useState([]);
+  const [dbProducts, setDbProducts] = useState([]);
 
   useEffect(() => {
     fetch(config.productsUrl)
       .then(res => res.json())
-      .then(json => setProducts(json || []) );
+      .then(json => {
+        setProducts(json || []);
+        setDbProducts(json || []);
+      } );
   }, []);
 
   const deleteProduct = (index) => {
@@ -22,9 +26,22 @@ function MaintainProducts() {
     fetch(config.productsUrl, {method: "PUT", body: JSON.stringify(products)});
   }
 
+  const searchedRef = useRef();
+
+  const searchFromProducts = () => {
+    const result = dbProducts.filter(product => 
+      product.name.toLowerCase().includes(searchedRef.current.value.toLowerCase()) || 
+      product.description.toLowerCase().includes(searchedRef.current.value.toLowerCase()) || 
+      product.id.toString().includes(searchedRef.current.value)
+      );
+    setProducts(result);
+  }
+
   return (
     <div>
       <AdminHome />
+      <input onChange={searchFromProducts} ref={searchedRef} type="text" />
+      <div>{products.length} tk</div>
       {products.map((product, index) => 
         <div key={product.id}>
           <img src={product.image} alt="" />

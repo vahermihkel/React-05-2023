@@ -11,6 +11,13 @@ function AddProduct() {
   const descriptionRef = useRef();
   const activeRef = useRef();
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch(config.categoryUrl)
+      .then(res => res.json())
+      .then(json => setCategories(json || []) );
+  }, []);
 
   useEffect(() => {
     fetch(config.productsUrl)
@@ -43,7 +50,11 @@ function AddProduct() {
     <label>Image:</label> <br />
     <input type="text" ref={imageRef} /> <br />
     <label>Category:</label> <br />
-    <input type="text" ref={categoryRef} /> <br />
+    {/* <input type="text" ref={categoryRef} />  */}
+    <select ref={categoryRef}>
+      {categories.map(category => <option key={category.name}>{category.name}</option>)}
+    </select>
+    <br />
     <label>Description:</label> <br />
     <input type="text" ref={descriptionRef} /> <br />
     <label>Active:</label> <br />

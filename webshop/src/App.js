@@ -85,3 +85,9 @@ export default App;
 // context
 
 // redux ---> ei vaata
+
+// 03.07 kaardirakendus (Leaflet), kategooriad dropdownist, kategooriad avalehel, pakiautomaadid ostukorvis
+// 05.07: ostukorv kogustega, ostukorvi kujundus
+// 10.07: makse: API päringu (EveryPay)
+// Components loogikat
+// Context - globaalne muutuja
