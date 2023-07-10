@@ -3,6 +3,7 @@ import AdminHome from "./AdminHome";
 import { useNavigate, useParams } from "react-router-dom";
 // import productsFromFile from "../../data/products.json";
 import config from "../../data/config.json";
+import { ToastContainer, toast } from 'react-toastify';
 
 function EditProduct() {
   const { id } = useParams();
@@ -39,6 +40,23 @@ function EditProduct() {
   const edit = async () => {
     const index = products.findIndex((product) => product.id === Number(id));
 
+    if (idRef.current.value === "") {
+      toast.error("Pead sisestama ID!");
+      return;
+    }
+    if (nameRef.current.value === "") {
+      toast.error("Pead sisestama nime!");
+      return;
+    }
+    if (priceRef.current.value === "") {
+      toast.error("Pead sisestama hinna!");
+      return;
+    }
+    if (imageRef.current.value.includes(" ")) {
+      toast.error("Pildi URLi ei saa tühikuga sisestada!");
+      return;
+    }
+
     const newProduct = {
       id: Number(idRef.current.value),
       image: imageRef.current.value,
@@ -66,8 +84,11 @@ function EditProduct() {
     return <div>Loading...</div>;
   }
 
-  // VIGA: ei saa enda oma tagasi panna
   const checkIdUniqueness = () => {
+    if (idRef.current.value === id) {
+      setUnique(true);
+      return;
+    }
     const result = products.filter(product => product.id === Number(idRef.current.value));
     // setUnique(result.length === 0);
     if (result.length === 0) {
@@ -77,8 +98,20 @@ function EditProduct() {
     }
   }
 
+  // 10 inimesega tiim
+  // 5 arendajat
+  // 2 analüütik - koostab hinnapakkumisi, osaleb riigihangetel, priority
+  // 1 tiimijuht - esimene kontakt kliendile
+  // 1 testija
+  // 1 disainer
+  // 100 töötajat, 3disainerit
+
   return (
     <div>
+      <ToastContainer
+        position="bottom-right"
+        theme="dark"
+      />
       <AdminHome />
       {found !== undefined && (
         <div>

@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'leaflet/dist/leaflet.css';
-import './index.css'; // miks bootstrap ülespoole kui index.css? 
+import 'react-toastify/dist/ReactToastify.css';
+import './index.css'; // miks css-d ülespoole kui index.css? 
 // siis saan vajadusel üle kirjutada, sest koodis kui midagi on allpool, siis see kehtib
 import './i18n';
 import App from './App';

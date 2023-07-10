@@ -89,5 +89,5 @@ export default App;
 // 03.07 kaardirakendus (Leaflet), kategooriad dropdownist, kategooriad avalehel, pakiautomaadid ostukorvis
 // 05.07: ostukorv kogustega, ostukorvi kujundus
 // 10.07: makse: API päringu (EveryPay)
-// Components loogikat
+// 12.07: MUI, CSS module, Components loogikat
 // Context - globaalne muutuja

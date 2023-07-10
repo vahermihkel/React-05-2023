@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import cartFromFile from "../../data/cart.json";
 import config from "../../data/config.json";
 import { Button } from 'react-bootstrap';
+import "../../css/HomePage.css";
 
 // Andmebaas ---> tooted, kategooriad, kasutajad, poed, ....
 // Brauserisse ---> ostukorvi
@@ -102,13 +103,15 @@ function HomePage() {
         <button onClick={() => filterByCategory(category.name)} key={category.name}>
           {category.name}
         </button>)}
-      {products.map(product => 
-        <div key={product.id}>
-          <img src={product.image} alt="" />
-          <div>{product.name}</div>
-          <div>{product.price.toFixed(2)}</div>
-          <button onClick={() => addToCart(product)}>Lisa ostukorvi</button>
-        </div>)}
+      <div className="products">
+        {products.map(product => 
+          <div className="home-product" key={product.id}>
+            <img src={product.image} alt="" />
+            <div className="home-name">{product.name}</div>
+            <div>{product.price.toFixed(2)}</div>
+            <button onClick={() => addToCart(product)}>Lisa ostukorvi</button>
+          </div>)}
+      </div>
     </div>
   )
 }
