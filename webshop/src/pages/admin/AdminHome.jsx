@@ -8,7 +8,7 @@ function AdminHome() {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className="center">
       <Button variant="primary" as={Link} to="/admin/maintain-categories">{t("maintain-categories")}</Button>{' '}
       <Button variant="secondary" as={Link} to="/admin/maintain-shops">{t("maintain-shops")}</Button>{' '}
       <Button variant="success" as={Link} to="/admin/maintain-products">{t("maintain-products")}</Button>{' '}

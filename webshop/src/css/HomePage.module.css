@@ -3,13 +3,13 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.home-product {
+.product {
   border: 1px solid lightgray;
   text-align: center;
   padding: 10px;
 }
 
-.home-product img {
+.product img {
   width: 200px;
   height: 200px;
   border-radius: 10px;
@@ -17,12 +17,12 @@
   transition: 0.5s;
 }
 
-.home-product:hover img {
+.product:hover img {
   transform: scale(1.1);
   transition: 0.5s;
 }
 
-.home-name {
+.name {
   height: 50px;
 }
 

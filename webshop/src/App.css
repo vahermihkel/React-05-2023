@@ -1,3 +1,28 @@
+.lang {
+  height: 30px;
+  width: 30px;
+}
+
+.lang:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.lang:active {
+  padding: 1px;
+}
+
 .map {
   height: 300px;
+  margin: 3%;
+  border-radius: 10px;
+}
+
+.center {
+  margin-top: 50px;
+  text-align: center;
+}
+
+tr, td {
+  border: 1px solid black;
 }

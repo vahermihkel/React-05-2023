@@ -42,17 +42,23 @@ function MaintainProducts() {
       <AdminHome />
       <input onChange={searchFromProducts} ref={searchedRef} type="text" />
       <div>{products.length} tk</div>
-      {products.map((product, index) => 
-        <div key={product.id}>
-          <img src={product.image} alt="" />
-          <div>{product.id}</div>
-          <div>{product.name}</div>
-          <div>{product.price}</div>
-          <div>{product.category}</div>
-          <div>{product.description}</div>
-          <button onClick={() => deleteProduct(index)}>Kustuta</button>
-          <Button variant="primary" as={Link} to={"/admin/edit-product/" + product.id}>{t("change")}</Button>{' '}
-        </div>)}
+      <table>
+        <tbody>
+          {products.map((product, index) => 
+            <tr key={product.id}>
+              <td><img src={product.image} alt="" /></td>
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>{product.price}</td>
+              <td>{product.category}</td>
+              <td>{product.description}</td>
+              <td>
+                <button onClick={() => deleteProduct(index)}>Kustuta</button>
+                <Button variant="primary" as={Link} to={"/admin/edit-product/" + product.id}>{t("change")}</Button>{' '}
+              </td>
+            </tr>)}
+        </tbody>
+      </table>
     </div>
   )
 }

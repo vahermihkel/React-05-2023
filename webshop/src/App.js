@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import HomePage from './pages/global/HomePage';
@@ -8,54 +8,19 @@ import { ContactUs } from './pages/global/ContactUs';
 import SingleProduct from './pages/global/SingleProduct';
 import NotFound from './pages/global/NotFound';
 
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
-import { useTranslation } from 'react-i18next';
-
 import AdminHome from './pages/admin/AdminHome';
 import AddProduct from './pages/admin/AddProduct';
 import MaintainProducts from './pages/admin/MaintainProducts';
 import MaintainCategories from './pages/admin/MaintainCategories';
 import MaintainShops from './pages/admin/MaintainShops';
 import EditProduct from './pages/admin/EditProduct';
+import NavigationBar from './components/NavigationBar';
 
 function App() {
-
-  const { t, i18n } = useTranslation();
-
-
   return (
     <div className="App">
 {/* <h1>{t('Welcome to React')}</h1> */}
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand as={Link} to="/">Mihkel's webshop</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/poed">{t("shops")}</Nav.Link>
-              <Nav.Link as={Link} to="/kontakteeru">{t("contact")}</Nav.Link>
-              <NavDropdown title="Admin" id="collasible-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/admin/maintain-categories">{t("maintain-categories")}</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/admin/maintain-shops">{t("maintain-shops")}</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/admin/maintain-products">{t("maintain-products")}</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/admin/add-product">{t("add-product")}</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to="/admin">Admin</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <button onClick={() => i18n.changeLanguage("en")}>en</button>
-            <button onClick={() => i18n.changeLanguage("ee")}>ee</button>
-            <Nav>
-              <Nav.Link as={Link} to="/ostukorv">{t("cart")}</Nav.Link>
-              <Nav.Link>{t("login")}</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <NavigationBar />
 
       <Routes>
         <Route path="" element={ <HomePage /> } />
@@ -89,5 +54,7 @@ export default App;
 // 03.07 kaardirakendus (Leaflet), kategooriad dropdownist, kategooriad avalehel, pakiautomaadid ostukorvis
 // 05.07: ostukorv kogustega, ostukorvi kujundus
 // 10.07: makse: API päringu (EveryPay)
-// 12.07: MUI, CSS module, Components loogikat
+// 12.07: CSS module, Components loogikat, MUI
 // Context - globaalne muutuja
+
+// 18 kohtumist
